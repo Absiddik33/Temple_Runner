@@ -20,7 +20,7 @@ void CreateObstacle::spawn() {
     float time = spawnClock.getElapsedTime().asSeconds();
     float multiplier = clock.getElapsedTime().asSeconds();
     if (time > 1 - (multiplier * 0.01)) {
-        spawnClock.restart();
+        spawnClock.restart(); //reset clock to measure the elapsed time until the next obstacle spawned.
         add(sf::Vector2f(SPAWN_X, SPAWN_Y + rand() % SPAWN_RANDOM_Y));
     }
 }

@@ -33,6 +33,7 @@ private:
     sf::Clock animClock;
     sf::Clock scoreClock;
     sf::Text scoreText;
+    sf::Text direction;
     sf::Text gameOverText;
     sf::Font font;
 
@@ -44,6 +45,7 @@ private:
 
     void jump(float dt);
     void crouch(float dt);
+    void move(float dt);
     void normalise();
     void animation();
 public:

@@ -30,6 +30,7 @@ int main() {
             if (event.type == Event::EventType::Closed)
                 window.close();
         }
+       
 
         if (player.isGameOver() && Keyboard::isKeyPressed(Keyboard::Space)) {
             player.restart();

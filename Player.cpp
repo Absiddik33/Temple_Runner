@@ -23,11 +23,12 @@ Player::Player() {
     scoreText.setFillColor(Color::White);
     scoreText.setString("Score: 0");
 
+
     gameOverText.setFont(font);
     gameOverText.setPosition(60, 150);
-    gameOverText.setCharacterSize(36);
+    gameOverText.setCharacterSize(40);
     gameOverText.setFillColor(Color::White);
-    gameOverText.setString("Game Over !! \nPress \"SPACE\" to restart!");
+    gameOverText.setString("Game Over !! \n \"SPACE\" to restart!");
     spritesheet.loadFromFile("D:/OPP/SFML/player.png");
 }
 
@@ -38,6 +39,15 @@ void Player::jump(float dt) {
     }
     if (isJumping && !isCrouching) {
         ySpeed += FALL_SPEED * dt;
+    }
+}
+void Player::move(float dt) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        if (self.getPosition().x >= -20) {
+            self.move(-50, 0);
+        }
+
     }
 }
 
@@ -56,6 +66,7 @@ void Player::crouch(float dt) {
         self.setOrigin(15, HEIGHT_STAND);
     }
 }
+
 
 void Player::normalise() {
     if (self.getPosition().y > START_POSITION_Y) {
@@ -128,6 +139,7 @@ void Player::draw(RenderWindow &window) {
     sprite.setPosition(self.getPosition());
     window.draw(sprite);
     window.draw(scoreText);
+    window.draw(direction);
     if (isGameOver())
     {
         window.draw(gameOverText);
