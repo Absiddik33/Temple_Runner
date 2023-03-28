@@ -31,7 +31,7 @@ int main()
     obstacle2Texture.loadFromFile("obstacle.png");
     sf::Sprite obstacle2(obstacle2Texture);
     obstacle2.setPosition(600, 510);
-
+ 
     // Set up gravity variables    
     float gravity = 0.80f;
     bool isJumping = false;
